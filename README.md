@@ -1,4 +1,4 @@
-TO DO LIST APP
+APP FOR MAKING APPOINTMENTS
 
 Local Developing
     
@@ -12,8 +12,14 @@ Local Developing
        pip install --upgrade pip
        pip install -r requirements.txt
 
-3. Create your own .env file and run the project
+3. Create your own .env file. Run project dependencies, migrations, fill the database with the fixture data
 
        cp .env.template .env
-
+       
+       ./manage.py migrate
+       ./manage.py loaddata appointments/fixtures/categories.json
+       ./manage.py loaddata appointments/fixtures/appointments_name.json
        ./manage.py runserver 
+4. Run Redis Server:
+
+       redis-server
