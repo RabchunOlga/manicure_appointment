@@ -1,0 +1,32 @@
+{% extends 'appointments/base.html' %}
+{% load humanize %}
+
+{% block content %}
+    <section>
+        <div class="container pt-5">
+            <div class="text-center mt-5">
+                <h1>Записи</h1>
+                <div class="orders mt-5">
+                    <table class="table">
+                        <thead>
+                        <tr class="table-light">
+                            <th scope="col">#</th>
+                            <th scope="col">Процедура</th>
+                            <th scope="col">Стоимость</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for record in object_list%}
+                            <tr>
+                                <th scope="row">{{ record.id }}</th>
+                                <td>{{ record.appointment.name }}</td>
+                                <td>{{ record.appointment.price|intcomma }} руб.</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
